@@ -1,9 +1,7 @@
-import React from 'react';
-import { FaHistory } from 'react-icons/fa';
-import TextField from '@mui/material/TextField';
-import Image from 'next/image';
-import Link from 'next/link';
 import Search from '@/components/search';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import React from 'react';
+import Link from 'next/link';
 
 /*untuk data*/
 interface ShipmentDetail {
@@ -19,11 +17,25 @@ interface ShipmentTableProps {
     data: ShipmentDetail[];
 }
 
-const DaftarPengiriman: React.FC = () => {
+const DaftarPengiriman: React.FC<ShipmentTableProps> = ({ data }) => {
     const containerStyle: React.CSSProperties = {
         overflow: 'hidden', // Menyembunyikan overflow
         height: '100vh', // Menetapkan tinggi 100% dari viewport
     };
+
+    // const [searchTerm, setSearchTerm] = useState<string>('');
+    // const [searchResults, setSearchResults] = useState<ShipmentDetail[]>(data);
+  
+    // Fungsi untuk melakukan pencarian
+    // const handleSearch = () => {
+    //   const results = data.filter((row) =>
+    //     Object.values(row)
+    //       .join(' ')
+    //       .toLowerCase()
+    //       .includes(searchTerm.toLowerCase())
+    //   );
+    //   setSearchResults(results);
+    // };
 
     /*untuk data*/
     const ShipmentDetail = [
@@ -45,22 +57,6 @@ const DaftarPengiriman: React.FC = () => {
         },
         {
             no: 3,
-            courierName: 'Jane Smith',
-            recipientName: 'Bob',
-            destinationAddress: '456 Oak St',
-            flowerType: 'Tulips',
-            recipientPhoneNumber: '555-5678',
-        },
-        {
-            no: 4,
-            courierName: 'Jane Smith',
-            recipientName: 'Bob',
-            destinationAddress: '456 Oak St',
-            flowerType: 'Tulips',
-            recipientPhoneNumber: '555-5678',
-        },
-        {
-            no: 5,
             courierName: 'Jane Smith',
             recipientName: 'Bob',
             destinationAddress: '456 Oak St',
@@ -100,10 +96,11 @@ const DaftarPengiriman: React.FC = () => {
         >
 
     
-                <div className="text-orange-700 md:px-10 py-5" style={{fontSize: '24px', fontWeight: 'bold' }}>
+                <a href= '..\pengiriman'
+                className="text-orange-700 md:px-10 py-5 flex items-center" style={{fontSize: '24px', fontWeight: 'bold' }}>
                     {/* Judulnya */}
-                    <h1 >Pengiriman</h1>
-                </div>
+                    <ArrowLeftIcon className="w-4 md:w-6 mr-2" /> <span>Riwayat Pengiriman</span>
+                </a>
             
                 <div className="flex justify-center">
                     {/* Untuk tombolnya */}
@@ -140,13 +137,8 @@ const DaftarPengiriman: React.FC = () => {
                 
                 <div className="flex items-center justify-center md:p-10">
                     <div className="flex items-center p-5 bg-white rounded-md bg-opacity-70 w-full">
-                    {/* Set width to full width */}
                     <Search/>
 
-                    <Link href='pengiriman\riwayat' className="flex items-center ml-40 p-3 bg-green-50 text-green-800 rounded-lg">
-                        <FaHistory className="w-5 h-5 mr-2" />
-                        <p>Lihat Riwayat</p>
-                    </Link>
                     </div>
                 </div>
 
@@ -177,7 +169,7 @@ const DaftarPengiriman: React.FC = () => {
                             <td className="py-3 px-6 border-b">{row.flowerType}</td>
                             <td className="py-3 px-6 border-b">{row.recipientPhoneNumber}</td>
                             <td className="py-3 px-6 border-b">
-                                <Link href="pengiriman/detail"
+                                <Link href="../pengiriman/detail"
                                     className="py-2.5 px-5 me-2 mb-2 
                                     text-md font-medium text-gray-900 
                                     focus:outline-none bg-yellow-200 rounded-full border border-gray-200 
