@@ -102,37 +102,17 @@ const DaftarPengiriman: React.FC<ShipmentTableProps> = ({ data }) => {
                     <ArrowLeftIcon className="w-4 md:w-6 mr-2" /> <span>Riwayat Pengiriman</span>
                 </a>
             
-                <div className="flex justify-center">
+                <div className="px-8 grid grid-cols-2 gap-3">
                     {/* Untuk tombolnya */}
-                    <div className="col-span-1 md:pl-5">
-                    <button type="button" 
-                    className="py-2.5 px-5 me-2 mb-2 
-                    text-md font-medium text-gray-900 
-                    focus:outline-none bg-green-400 rounded-full border border-gray-200 
-                    hover:bg-green-600 hover:text-white 
-                    focus:z-10 focus:ring-4 focus:ring-gray-200 
-                    dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 
-                    dark:hover:text-white dark:hover:bg-gray-700"
-                    style={{ width: '540px' }} // Ganti dengan lebar yang diinginkan
-                    >
+                    
+                    <button className="rounded-full h-10 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
                         Tambah Pengiriman
                     </button>
-                    </div>
-
-                    <div className="col-span-1 md:pl-5">
-                    <button type="button" 
-                    className="py-2.5 px-5 me-2 mb-2 
-                    text-md font-medium text-gray-900 
-                    focus:outline-none bg-green-400 rounded-full border border-gray-200 
-                    hover:bg-green-600 hover:text-white 
-                    focus:z-10 focus:ring-4 focus:ring-gray-200 
-                    dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 
-                    dark:hover:text-white dark:hover:bg-gray-700"
-                    style={{ width: '540px' }} // Ganti dengan lebar yang diinginkan
-                    >
+                                      
+                    <button className="rounded-full h-10 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
                         Daftar Pengiriman
                     </button>
-                    </div>
+                    
                 </div>
                 
                 <div className="flex items-center justify-center md:p-10">
@@ -158,10 +138,9 @@ const DaftarPengiriman: React.FC<ShipmentTableProps> = ({ data }) => {
                         </tr>
                     </thead>
 
-                    <tbody style={{ overflowY: 'auto', maxHeight: '200px', 
-                     }}>
+                    <tbody style={{ overflowY: 'auto', maxHeight: '200px', overflowX: 'auto'}}>
                         {ShipmentDetail.map((row) => (
-                        <tr key={row.no} className="bg-white dark:bg-gray-800">
+                        <tr key={row.no} className="bg-white">
                             <td className="py-3 px-6 border-b">{row.no}</td>
                             <td className="py-3 px-6 border-b">{row.courierName}</td>
                             <td className="py-3 px-6 border-b">{row.recipientName}</td>
@@ -174,9 +153,7 @@ const DaftarPengiriman: React.FC<ShipmentTableProps> = ({ data }) => {
                                     text-md font-medium text-gray-900 
                                     focus:outline-none bg-yellow-200 rounded-full border border-gray-200 
                                     hover:bg-yellow-700 hover:text-white 
-                                    focus:z-10 focus:ring-4 focus:ring-gray-200 
-                                    dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 
-                                    dark:hover:text-white dark:hover:bg-gray-700"
+                                    focus:z-10 focus:ring-4 focus:ring-gray-200"
                                     // Ganti dengan lebar yang diinginkan
                                 >
                                 Lihat Detail
