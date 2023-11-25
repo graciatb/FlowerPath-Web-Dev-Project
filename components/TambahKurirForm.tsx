@@ -45,7 +45,7 @@ export default function TambahKurirForm() {
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Nama Kurir */}
         <div className="mb-4">
-          <label htmlFor="nama" className="mb-2 block text-sm font-medium">
+        <label htmlFor="nama" className="mb-2 block text-sm font-medium">
             Nama Kurir
           </label>
           <div className="relative mt-2 rounded-md">

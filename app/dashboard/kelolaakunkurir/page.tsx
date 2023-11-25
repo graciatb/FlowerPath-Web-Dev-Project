@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import Search from "@/components/search";
 import { fetchKurirPages } from "@/lib/action/data";
-import TabelKurir from "@/components/table";
+import TabelKurir from "@/components/KurirTable";
 
 export default async function Page({
   searchParams,

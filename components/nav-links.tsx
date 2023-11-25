@@ -19,7 +19,7 @@ const links = [
     href: '/dashboard/kelolaakunkurir',
     icon: UserCircleIcon,
   },
-  { name: 'Pengiriman', href: '/dashboard/shipment', icon: TruckIcon },
+  { name: 'Pengiriman', href: '/dashboard/pengiriman', icon: TruckIcon },
   { name: 'Notifikasi', href: '/dashboard/notification', icon: BellIcon }
 ];
 
