@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import LoginForm from '@/components/loginform';
-import readUserSession from '@/lib/action/actions';
+import { readUserSession } from '@/lib/action/actions';
 import { redirect } from 'next/navigation';
 
 export default async function Page() {
