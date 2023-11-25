@@ -21,22 +21,15 @@ const Page: React.FC = () => {
       {/* Background */}
       <div
         className="flex-grow bg-cover bg-center p-0 m-0"
-        style={{
-          backgroundImage: 'url("/bg.png")',
-          paddingTop: 0,
-          paddingRight: 0,
-          paddingBottom: 0,
-          paddingLeft: 0,
-        }}
       >
+        <h1 className="text-2xl font-bold mb-2 p-5 text-orange-800">Dashboard</h1>
         {/* Page Content */}
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-center">
           <div className="p-4 bg-white rounded-md bg-opacity-70 w-full">
             {/* Set width to full width */}
-            <h1 className="text-2xl font-bold mb-2">Dashboard</h1>
 
             {/* White Boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-[#F0F0F0] p-2 rounded-xl">
               {/* Upper White Box (Orange) */}
               <div className="bg-orange-200 p-4 rounded-md flex items-center mb-4 bg-opacity-70">
                 <div className="flex-shrink-0">
