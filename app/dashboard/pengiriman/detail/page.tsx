@@ -80,7 +80,7 @@ const DetailPengiriman: React.FC = () => {
 
                 <div className="flex items-center justify-center md:p-10">
                 <div className="flex items-center p-5 bg-white rounded-md bg-opacity-70 w-full">
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <table className="w-full text-sm text-left text-gray-500">
                     <thead className="bg-orange-700 text-yellow-500">
                         <tr>
                         <th scope="col" className="py-4 px-6 border-b">No</th>
@@ -96,7 +96,7 @@ const DetailPengiriman: React.FC = () => {
                     <tbody style={{ overflowY: 'auto', maxHeight: '200px', 
                      }}>
                         {ShipmentDetail.map((row) => (
-                        <tr key={row.no} className="bg-white dark:bg-gray-800">
+                        <tr key={row.no} className="bg-white">
                             <td className="py-4 px-6 border-b">{row.no}</td>
                             <td className="py-4 px-6 border-b">{row.courierName}</td>
                             <td className="py-4 px-6 border-b">{row.recipientName}</td>
@@ -118,7 +118,7 @@ const DetailPengiriman: React.FC = () => {
                         {/* Judulnya */}
                         <h1 >Keterangan Paket</h1>
                     </div>
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <table className="w-full text-sm text-left text-gray-500">
                     <thead className="bg-orange-700 text-yellow-500">
                         <tr>
                         <th scope="col" className="py-4 px-6 border-b">Tautan Gambar</th>
@@ -129,7 +129,7 @@ const DetailPengiriman: React.FC = () => {
                     <tbody style={{ overflowY: 'auto', maxHeight: '200px', 
                      }}>
                         {ShipmentDetail.map((row) => (
-                        <tr className="bg-white dark:bg-gray-800">
+                        <tr className="bg-white">
                             <td className="py-4 px-6 border-b">{row.tautanGambar}</td>
                             <td className="py-4 px-6 border-b">{row.deskripsiKeterangan}</td>
                         </tr>
