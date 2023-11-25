@@ -44,7 +44,7 @@ export default async function Page({
         // }}
       >
 
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between p-5">
           <h1 className="text-2xl font-bold text-orange-800">
             Kelola Akun Kurir
           </h1>
