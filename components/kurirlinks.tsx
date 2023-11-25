@@ -1,10 +1,8 @@
 'use client';
 
 import {
-  UserCircleIcon,
   Squares2X2Icon,
-  TruckIcon,
-  BellIcon
+  TruckIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -13,14 +11,12 @@ import clsx from 'clsx';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Dashboard', href: '/dashboard', icon: Squares2X2Icon },
+  { name: 'Dashboard', href: '/kurir', icon: Squares2X2Icon },
   {
-    name: 'Kelola Akun Kurir',
-    href: '/dashboard/kelolaakunkurir',
-    icon: UserCircleIcon,
+    name: 'Paket',
+    href: '/kurir/package',
+    icon: TruckIcon,
   },
-  { name: 'Pengiriman', href: '/dashboard/shipment', icon: TruckIcon },
-  { name: 'Notifikasi', href: '/dashboard/notification', icon: BellIcon }
 ];
 
 export default function NavLinks() {

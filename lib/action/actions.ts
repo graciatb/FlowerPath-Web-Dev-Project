@@ -1,9 +1,8 @@
 "use server";
-import createSupabaseServerClient from "../supabase/server"
-import { unstable_noStore as noStore } from "next/cache";
+import { createSupabaseServerClientReadOnly } from "@/lib/supabase/server";
 
-export default async function readUserSession(){
-    noStore();
-    const supabase = await createSupabaseServerClient();
-    return supabase.auth.getSession();
+export async function readUserSession() {
+	const supabase = await createSupabaseServerClientReadOnly();
+
+	return supabase.auth.getSession();
 }
