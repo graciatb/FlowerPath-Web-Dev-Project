@@ -49,10 +49,12 @@ export default async function Page() {
                     </button>
                 </div>
 
+                {/* Set table */}
                 <div className="items-center pt-2 px-8 pb-0 w-full overflow-y-auto">
                     <PackageTable/>
                 </div>
 
+                {/* Set pagination */}
                 <div className="sm:pt-1 sm:pb-3 justify-center xl:pt-4 2xl:px-8 xl:pb-4 w-full flex">
                     <Pagination totalPages={5} />
                     </div>

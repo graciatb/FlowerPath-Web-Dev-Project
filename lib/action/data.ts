@@ -100,3 +100,15 @@ export async function fetchRiwayatPengiriman(
     .range(offset, offset + ITEMS_PER_PAGE - 1);
   return supaQuery;
 }
+
+export async function fetchPengirimanById(id: string) {
+  noStore();
+  const supabase = await createSupabaseServerClient();
+  const result = await supabase
+    .from("pengiriman")
+    .select("*,user!inner(nama),paket!inner(*)")
+    .eq("id", id)
+    .limit(1)
+    .single();
+  return result;
+}
