@@ -65,7 +65,7 @@ export default async function PackageTable () {
                     </div>
                   </div>
                   <div className="flex justify-end gap-2">
-                  <button className="rounded-full border border-gray-500 h-7 w-32 bg-white bg-opacity-90 rounded-full hover:bg-pink-600 text-sm text-pink-600 font-semibold hover:text-white ">
+                  <button className="border border-gray-500 h-7 w-32 bg-white bg-opacity-90 rounded-full hover:bg-pink-600 text-sm text-pink-600 font-semibold hover:text-white ">
                         Lihat Detail
                     </button>
                   </div>
@@ -136,7 +136,7 @@ export default async function PackageTable () {
                     </div>
                   </td>
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
-                    <button className="rounded-full border border-gray-500 h-7 w-full bg-white bg-opacity-90 rounded-full hover:bg-pink-600 text-sm text-pink-600 font-semibold hover:text-white ">
+                    <button className="border border-gray-500 h-7 w-full bg-white bg-opacity-90 rounded-full hover:bg-pink-600 text-sm text-pink-600 font-semibold hover:text-white ">
                         Lihat Detail
                     </button>
                 </td>

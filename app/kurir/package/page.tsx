@@ -34,17 +34,17 @@ export default async function Page() {
                 <div className="px-8 grid grid-cols-3 gap-3">
 
                     {/* Set button 1 */} 
-                    <button className="rounded-full h-7 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
+                    <button className="h-7 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
                         Berlangsung
                     </button>
 
                     {/* Set button 2 */} 
-                    <button className="rounded-full h-7 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
+                    <button className="h-7 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
                         Bermasalah
                     </button>
 
                     {/* Set button 3 */} 
-                    <button className="rounded-full h-7 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
+                    <button className="h-7 w-full bg-green-400 bg-opacity-90 rounded-full hover:bg-green-500 text-sm text-green-600 font-semibold hover:text-white ">
                         Selesai
                     </button>
                 </div>
