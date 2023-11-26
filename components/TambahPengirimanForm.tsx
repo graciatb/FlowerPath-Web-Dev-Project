@@ -32,9 +32,7 @@ export default function TambahPengirimanForm({
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
     startTransition(async () => {
-        console.log(data);
         await createPengiriman(data);
     });
   }
