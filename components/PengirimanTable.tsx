@@ -62,7 +62,7 @@ export default async function PengirimanTable({
               <td className="py-3 px-6 border-b">{row.paket.notelp}</td>
               <td className="py-3 px-6 border-b">
                 <Link
-                  href="pengiriman/detail"
+                  href={`/dashboard/pengiriman/${row.id}/detail`}
                   className="py-2.5 px-5 me-2 mb-2 
                                     text-sm font-small text-gray-900 
                                     focus:outline-none bg-yellow-200 rounded-full border border-gray-200 

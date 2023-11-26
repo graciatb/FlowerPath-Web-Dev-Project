@@ -1,11 +1,11 @@
 "use client";
-import * as z from "zod";
+import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { cn } from "@/lib/utils";
 import { useTransition } from "react";
-import { createKurir, updateKurirById } from "@/app/dashboard/kelolaakunkurir/action/actions";
+import { updateKurirById } from "@/app/dashboard/kelolaakunkurir/action/actions";
 import Link from "next/link";
 
 const FormSchema = z
