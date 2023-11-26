@@ -10,7 +10,6 @@ export async function createPengiriman(data: {
   idpaket: string;
   idkurir: string;
 }) {
-  console.log(data);
   const { data: userSession } = await readUserSession();
   if (userSession.session?.user.user_metadata.role !== "admin") {
     console.log("not allowed");
@@ -20,14 +19,13 @@ export async function createPengiriman(data: {
   }
   try {
     const supabase = await createSupabaseServerClient();
-    const { error } = await supabase.from("pengiriman").insert([
+    const { error } = await supabase.from("pengiriman").insert(
       {
         statuspengiriman: data.status,
         idpaket: data.idpaket,
         idkurir: data.idkurir,
       },
-    ]);
-    console.log(error);
+    );
   } catch (error) {
     return JSON.stringify(error);
   }
