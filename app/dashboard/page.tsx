@@ -17,8 +17,9 @@ export default async function Page(){
     <div className="flex flex-col h-screen bg-slate-50">
       {/* Navbar */}
       <div className="p-7 pl-14 bg-gray-200">
-        <div className="flex justify-between items-center">
-          <div>Welcome, {nama}</div>
+        <div className="flex justify-left space-x-1">
+          <div>Welcome, </div>
+          <div className = "font-bold">{nama}</div>
           </div>
         </div>
 
