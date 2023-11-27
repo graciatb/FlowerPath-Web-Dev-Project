@@ -14,12 +14,6 @@ export async function updatePaket(
   }
 ) {
   const { data: userSession } = await readUserSession();
-  if (userSession.session?.user.user_metadata.role !== "admin") {
-    console.log("not allowed");
-    return JSON.stringify({
-      error: { message: "You are not allowed to do this!" },
-    });
-  }
   try {
     const supabase = await createSupabaseServerClient();
     const { error } = await supabase.from("pengiriman").update({
