@@ -1,6 +1,5 @@
 import React from "react";
 import { FaHistory } from "react-icons/fa";
-import TextField from "@mui/material/TextField";
 import Image from "next/image";
 import Link from "next/link";
 import Search from "@/components/search";
