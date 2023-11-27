@@ -123,7 +123,7 @@ export default function PackageTable({ detail }: { detail: any }) {
                     <div>{detail.paket.notelp}</div>
                   </div>
                 </td>
-                <td className="block max-h-10 overflow-y-auto">
+                <td className="block max-h-16 overflow-y-auto">
                 <td className="whitespace-wrap py-3">
                   <div className="flex justify-center items-center gap-3">
                     <div>{detail.paket.catatan}</div>
