@@ -108,7 +108,7 @@ export default async function PackageTable({
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <Link 
                     href={`/kurir/paket/${paket.paket.id}/detail`}
-                    className="border border-gray-500 h-7 w-full bg-white bg-opacity-90 rounded-full hover:bg-pink-600 text-sm text-pink-600 font-semibold hover:text-white ">
+                    className="border border-gray-500 h-9 w-full py-1 px-3 bg-white bg-opacity-90 rounded-full hover:bg-pink-600 text-sm text-pink-600 font-semibold hover:text-white ">
                       Lihat Detail
                     </Link>
                   </td>
