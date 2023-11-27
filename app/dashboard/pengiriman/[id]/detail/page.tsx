@@ -86,7 +86,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
               <tbody style={{ overflowY: "auto", maxHeight: "200px" }}>
                 <tr className="bg-white">
-                  <td className="py-4 px-6 border-b">{detail.user.nama}</td>
+                  <td className="py-4 px-6 border-b">{detail.users.nama}</td>
                   <td className="py-4 px-6 border-b">
                     {detail.paket.penerima}
                   </td>
