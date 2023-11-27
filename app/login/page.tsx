@@ -5,9 +5,13 @@ import { readUserSession } from '@/lib/action/actions';
 import { redirect } from 'next/navigation';
 
 export default async function Page() {
-  const { data } = await readUserSession();
-  if(data.session) {
-    return redirect('/dashboard');
+  const { data: userSession } = await readUserSession();
+  if(!userSession) redirect('/login');
+
+  if (userSession.session?.user.user_metadata.role === "admin") {
+    redirect('/dashboard');
+  } else if (userSession.session?.user.user_metadata.role === "kurir") {
+    redirect('/kurir');
   }
   return (
     <div className="flex h-screen">
