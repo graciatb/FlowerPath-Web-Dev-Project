@@ -4,14 +4,21 @@ import { FaMotorcycle } from "react-icons/fa6";
 import { FaHistory } from "react-icons/fa";
 import { FaTruck } from "react-icons/fa";
 import { IoWarningOutline } from "react-icons/io5";
+import { fetchCurrentUserName, fetchDeliveredPaketCount, fetchKurirCount, fetchOnHoldPaketCount, fetchPaketCount } from '@/lib/action/data';
 
-const Page: React.FC = () => {
+
+export default async function Page(){
+  const nama = fetchCurrentUserName();
+  const countpaket = fetchPaketCount();
+  const countproblem = fetchOnHoldPaketCount();
+  const countriwayat = fetchDeliveredPaketCount();
+  const countkurir = fetchKurirCount();
   return (
     <div className="flex flex-col h-screen bg-slate-50">
       {/* Navbar */}
       <div className="p-7 pl-14 bg-gray-200">
         <div className="flex justify-between items-center">
-          <div>Welcome, Michael Sihotang</div>
+          <div>Welcome, {nama}</div>
           </div>
         </div>
 
@@ -32,7 +39,7 @@ const Page: React.FC = () => {
                 </div>
                 <div className="md:ml-16 sm:ml-0">
                   <p className="text-lg font-medium text-gray-600">Total Kurir</p>
-                  <p className="font-bold text-3xl">200</p>
+                  <p className="font-bold text-3xl">{countkurir}</p>
                 </div>
                 <div className="overflow-hidden">
                 <div className="md:ml-40 sm:ml-32 py-4 px-4 bg-green-500 bg-opacity-100 rounded-full">
@@ -47,7 +54,7 @@ const Page: React.FC = () => {
                 </div>
                 <div className="md:ml-16 sm:ml-0">
                   <p className="text-lg font-medium text-gray-600">Total Pengiriman</p>
-                  <p className="font-bold text-3xl">200</p>
+                  <p className="font-bold text-3xl">{countpaket}</p>
                 </div>
                 <div className="overflow-hidden">
                 <div className="md:ml-28 sm:ml-20 py-4 px-4 bg-green-500 bg-opacity-100 rounded-full">
@@ -62,7 +69,7 @@ const Page: React.FC = () => {
                 </div>
                 <div className="md:ml-24 sm:ml-10">
                   <p className="text-lg font-medium text-gray-600">Total Riwayat</p>
-                  <p className="font-bold text-3xl">200</p>
+                  <p className="font-bold text-3xl">{countriwayat}</p>
                 </div>
                 <div className="overflow-hidden">
                 <div className="md:ml-36 sm:ml-24 py-4 px-4 bg-green-500 bg-opacity-100 rounded-full">
@@ -76,8 +83,8 @@ const Page: React.FC = () => {
                 <div className="flex-shrink-0">
                 </div>
                 <div className="md:ml-16 sm:ml-0">
-                  <p className="text-lg font-medium text-gray-600">Total Riwayat</p>
-                  <p className="font-bold text-3xl">200</p>
+                  <p className="text-lg font-medium text-gray-600">Total Laporan</p>
+                  <p className="font-bold text-3xl">{countproblem}</p>
                 </div>
                 <div className="overflow-hidden">
                 <div className="md:ml-36 sm:ml-24 py-4 px-4 bg-pink-500 bg-opacity-100 rounded-full">
@@ -92,5 +99,3 @@ const Page: React.FC = () => {
     </div>
   );
 };
-
-export default Page;

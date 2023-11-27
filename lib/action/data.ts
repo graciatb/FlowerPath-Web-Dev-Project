@@ -194,3 +194,34 @@ export async function fetchOnHoldPaketCount() {
     .eq("statuspengiriman", "On Hold");
   return count;
 }
+
+export async function fetchPengirimanRiwayatCount() {
+  noStore();
+  const supabase = await createSupabaseServerClient();
+  const { count } = await supabase
+    .from("pengiriman")
+    .select("idpaket", { count: "exact" })
+    .eq("statuspengiriman", "Delivered");
+  return count;
+}
+
+export async function fetchKurirCount() {
+  noStore();
+  const supabase = await createSupabaseServerClient();
+  const { count } = await supabase
+    .from("users")
+    .select("id", { count: "exact" })
+    .eq("role", "kurir");
+  return count;
+}
+
+export async function fetchCurrentUserName() {
+  noStore();
+  const supabase = await createSupabaseServerClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error) {
+    throw new Error("Error fetching current user");
+  }
+  const { data: user } = await supabase.from("users").select("nama").eq("id", data.user.id).limit(1).single();
+  return user?.nama;
+}
