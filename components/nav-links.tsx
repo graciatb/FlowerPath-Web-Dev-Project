@@ -19,8 +19,8 @@ const links = [
     href: '/dashboard/kelolaakunkurir',
     icon: UserCircleIcon,
   },
-  { name: 'Pengiriman', href: '/dashboard/shipment', icon: TruckIcon },
-  { name: 'Notifikasi', href: '/dashboard/notification', icon: BellIcon }
+  { name: 'Pengiriman', href: '/dashboard/pengiriman', icon: TruckIcon },
+  { name: 'Notifikasi', href: '/dashboard/notifikasi', icon: BellIcon }
 ];
 
 export default function NavLinks() {

@@ -2,6 +2,8 @@ import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
+	const adminPath = "/dashboard";
+	const kurirPath = "/kurir";
 	let response = NextResponse.next({
 		request: {
 			headers: request.headers,
@@ -54,7 +56,33 @@ export async function middleware(request: NextRequest) {
 		}
 	);
 
-	await supabase.auth.getSession();
+	const {data:{session},} = await supabase.auth.getSession();
 
-	return response;
+	
+	if(!session) {
+		if(request.nextUrl.pathname.startsWith(adminPath) || request.nextUrl.pathname.startsWith(kurirPath)){
+			const redirectUrl = request.nextUrl.clone()
+			redirectUrl.pathname = "/login"
+			return NextResponse.redirect(redirectUrl);
+		} else {
+			return response;
+		}
+	
+	} else if(session?.user.user_metadata.role === "admin" && request.nextUrl.pathname.startsWith(kurirPath)){
+		const redirectUrl = request.nextUrl.clone()
+		redirectUrl.pathname = adminPath
+		return NextResponse.redirect(redirectUrl);
+	} else if(session?.user.user_metadata.role === "kurir" && request.nextUrl.pathname.startsWith(adminPath)){
+		const redirectUrl = request.nextUrl.clone()
+		redirectUrl.pathname = kurirPath
+		return NextResponse.redirect(redirectUrl);
+	} else {
+		return response;
+	}
+
+	
+}
+
+export const config = {
+	matcher:["/dashboard/:path*", "/kurir/:path*", '/((?!api|_next/static|_next/image|favicon.ico).*)']
 }

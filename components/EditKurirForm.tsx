@@ -1,11 +1,11 @@
 "use client";
-import * as z from "zod";
+import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { cn } from "@/lib/utils";
 import { useTransition } from "react";
-import { createKurir, updateKurirById } from "@/app/dashboard/kelolaakunkurir/action/actions";
+import { updateKurirById } from "@/app/dashboard/kelolaakunkurir/action/actions";
 import Link from "next/link";
 
 const FormSchema = z
@@ -19,7 +19,7 @@ const FormSchema = z
     confirm: z.string().optional(),
   })
   .refine((data) => data.confirm === data.password, {
-    message: "Passoword doesn't match",
+    message: "Password doesn't match",
     path: ["confirm"],
   });
 
@@ -36,7 +36,6 @@ export default function EditKurirForm({ kurir }: { kurir: any }) {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     startTransition(async () => {
-        console.log(data);
         await updateKurirById(kurir.id, data);
     });
   }
@@ -60,6 +59,7 @@ export default function EditKurirForm({ kurir }: { kurir: any }) {
                 defaultValue={kurir.nama}
                 placeholder="Masukkan nama kurir"
               />
+              {form.formState.errors.nama && <p className="mt-2 text-sm text-red-500">{form.formState.errors.nama.message}</p>}
             </div>
           </div>
         </div>
@@ -79,6 +79,7 @@ export default function EditKurirForm({ kurir }: { kurir: any }) {
                 defaultValue={kurir.email}
                 placeholder="Masukkan Email"
               />
+              {form.formState.errors.email && <p className="mt-2 text-sm text-red-500">{form.formState.errors.email.message}</p>}
             </div>
           </div>
         </div>
@@ -97,6 +98,7 @@ export default function EditKurirForm({ kurir }: { kurir: any }) {
                 defaultValue={kurir.password}
                 placeholder="Masukkan password"
               />
+              {form.formState.errors.password && <p className="mt-2 text-sm text-red-500">{form.formState.errors.password.message}</p>}
             </div>
           </div>
         </div>
@@ -115,6 +117,7 @@ export default function EditKurirForm({ kurir }: { kurir: any }) {
                 defaultValue={kurir.confirm}
                 placeholder="Konfirmasi password"
               />
+              {form.formState.errors.confirm && <p className="mt-2 text-sm text-red-500">{form.formState.errors.confirm.message}</p>}
             </div>
           </div>
         </div>

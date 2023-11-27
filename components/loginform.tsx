@@ -1,5 +1,5 @@
 "use client";
-import * as z from "zod";
+import { z } from "zod";
 import { signIn } from "@/app/login/action/actions";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -39,7 +39,7 @@ export default function LoginForm() {
     }
     return (
         <form 
-            className="w-full"
+            className="pt-3 w-full"
             onSubmit={form.handleSubmit(onSubmit)}
         >
             <label htmlFor="email">
@@ -53,6 +53,7 @@ export default function LoginForm() {
                 className="w-full border border-solid border-orange-700 rounded p-2 mb-2"
                 placeholder="Masukkan email Anda"
             />
+            <div className="pb-2"></div>
 
             <label htmlFor="password">
                 Password
@@ -66,12 +67,13 @@ export default function LoginForm() {
                 placeholder="Masukkan password Anda"
                 minLength={6}
             />
+            <div className="pb-2"></div>
 
             {/* Tombol untuk login */}
             
             <button
                 type="submit"
-                className="bg-orange-700 text-white rounded-full py-2 px-6 cursor-pointer w-full"
+                className="bg-orange-700 text-white rounded-full py-2 px-6 cursor-pointer w-full font-semibold hover:bg-pink-400 hover:text-pink-600 hover:font-semibold"
             >
                 Login
                 <AiOutlineLoading3Quarters className={cn("animate-spin",{hidden: true,})} />

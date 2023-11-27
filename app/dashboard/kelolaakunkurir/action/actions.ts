@@ -17,7 +17,6 @@ export async function createKurir(data: {
 }) {
   const { data: userSession } = await readUserSession();
   if (userSession.session?.user.user_metadata.role !== "admin") {
-    console.log("not allowed");
     return JSON.stringify({
       error: { message: "You are not allowed to do this!" },
     });
@@ -36,7 +35,7 @@ export async function createKurir(data: {
   if (createResult.error?.message) {
     return JSON.stringify(createResult);
   } else {
-    await supabase.from("user").insert({
+    await supabase.from("users").insert({
       nama: data.nama,
       id: createResult.data.user?.id,
       role: data.role,
@@ -78,7 +77,7 @@ export async function updateKurirById(
     } else{
       const supabase = await createSupabaseServerClient();
       await supabase
-        .from("user")
+        .from("users")
         .update({ nama: data.nama, email: data.email })
         .eq("id", id);
     }
@@ -103,7 +102,7 @@ export async function deleteMemberById(id: string) {
     return JSON.stringify(deleteResult);
   } else {
     const supabase = await createSupabaseServerClient();
-    await supabase.from("user").delete().eq("id", id);
+    await supabase.from("users").delete().eq("id", id);
   }
   revalidatePath("/dashboard/kelolaakunkurir");
   redirect("/dashboard/kelolaakunkurir");
@@ -112,5 +111,5 @@ export async function deleteMemberById(id: string) {
 export async function readMembers() {
   unstable_noStore();
   const supabase = await createSupabaseServerClient();
-  return supabase.from("user").select("*");
+  return supabase.from("users").select("*");
 }

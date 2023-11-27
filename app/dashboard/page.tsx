@@ -1,103 +1,96 @@
 // page.tsx
 import React from 'react';
+import { FaMotorcycle } from "react-icons/fa6";
+import { FaHistory } from "react-icons/fa";
+import { FaTruck } from "react-icons/fa";
+import { IoWarningOutline } from "react-icons/io5";
+import { fetchCurrentUserName, fetchDeliveredPaketCount, fetchKurirCount, fetchOnHoldPaketCount, fetchPaketCount } from '@/lib/action/data';
 
-const Page: React.FC = () => {
+
+export default async function Page(){
+  const nama = fetchCurrentUserName();
+  const countpaket = fetchPaketCount();
+  const countproblem = fetchOnHoldPaketCount();
+  const countriwayat = fetchDeliveredPaketCount();
+  const countkurir = fetchKurirCount();
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-slate-50">
       {/* Navbar */}
-      <div className="p-5 bg-gray-300">
-        <div className="flex justify-between items-center">
-          <div>Welcome, Michael Sihotang</div>
-          <div>
-            <img
-              src="/profil-image.png"
-              alt="User Profile"
-              className="w-15 h-15 rounded-full"
-            />
+      <div className="p-7 pl-14 bg-gray-200">
+        <div className="flex justify-left space-x-1">
+          <div>Welcome, </div>
+          <div className = "font-bold">{nama}</div>
           </div>
         </div>
-      </div>
 
       {/* Background */}
       <div
         className="flex-grow bg-cover bg-center p-0 m-0"
-        style={{
-          backgroundImage: 'url("/bg.png")',
-          paddingTop: 0,
-          paddingRight: 0,
-          paddingBottom: 0,
-          paddingLeft: 0,
-        }}
       >
+        <h1 className="pt-12 pl-14 text-4xl text-orange-700 font-bold flex-grow bg-center pb-10">Dashboard</h1>
         {/* Page Content */}
-        <div className="flex items-center justify-center h-full">
-          <div className="p-4 bg-white rounded-md bg-opacity-70 w-full">
-            {/* Set width to full width */}
-            <h1 className="text-2xl font-bold mb-2">Dashboard</h1>
+        <div className="flex items-center justify-center">
+          <div className="p-16 bg-white rounded-md bg-opacity-70 w-11/12">
 
             {/* White Boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Upper White Box (Orange) */}
-              <div className="bg-orange-200 p-4 rounded-md flex items-center mb-4 bg-opacity-70">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-7 rounded-xl">
+              {/* Upper White Box*/}
+              <div className="bg-green-400 p-10 rounded-md flex items-center mb-0 bg-opacity-90">
                 <div className="flex-shrink-0">
-                  {/* Circular Image for Box 1 */}
-                  <img
-                    src="kotak1.png"
-                    alt="Image 1"
-                    className="w-10 h-10 rounded-full"
-                  />
                 </div>
-                <div className="ml-4">
-                  <p className="text-lg font-semibold">Total Kurir</p>
-                  <p>200</p>
+                <div className="md:ml-16 sm:ml-0">
+                  <p className="text-lg font-medium text-gray-600">Total Kurir</p>
+                  <p className="font-bold text-3xl">{countkurir}</p>
+                </div>
+                <div className="overflow-hidden">
+                <div className="md:ml-40 sm:ml-32 py-4 px-4 bg-green-500 bg-opacity-100 rounded-full">
+                <FaMotorcycle color="white" size="40"/>
+                </div>
                 </div>
               </div>
 
-              {/* Upper White Box (Green) */}
-              <div className="bg-green-500 p-4 rounded-md flex items-center mb-4 bg-opacity-70">
+              {/* Upper White Box*/}
+              <div className="bg-green-400 p-10 rounded-md flex items-center mb-0 bg-opacity-90">
                 <div className="flex-shrink-0">
-                  {/* Circular Image for Box 2 */}
-                  <img
-                    src="kotak2.png"
-                    alt="Image 2"
-                    className="w-10 h-10 rounded-full"
-                  />
                 </div>
-                <div className="ml-4">
-                  <p className="text-lg font-semibold">Total Pengiriman</p>
-                  <p>200</p>
+                <div className="md:ml-16 sm:ml-0">
+                  <p className="text-lg font-medium text-gray-600">Total Pengiriman</p>
+                  <p className="font-bold text-3xl">{countpaket}</p>
+                </div>
+                <div className="overflow-hidden">
+                <div className="md:ml-28 sm:ml-20 py-4 px-4 bg-green-500 bg-opacity-100 rounded-full">
+                <FaTruck color="white" size="40"/>
+                </div>
                 </div>
               </div>
 
-              {/* Lower White Box (Green) */}
-              <div className="bg-green-500 p-4 rounded-md flex items-center bg-opacity-70">
+              {/* Lower White Box*/}
+              <div className="bg-green-400 py-10 rounded-md flex items-center bg-opacity-90">
                 <div className="flex-shrink-0">
-                  {/* Circular Image for Box 3 */}
-                  <img
-                    src="kotak3.png"
-                    alt="Image 3"
-                    className="w-10 h-10 rounded-full"
-                  />
                 </div>
-                <div className="ml-4">
-                  <p className="text-lg font-semibold">Total Riwayat</p>
-                  <p>200</p>
+                <div className="md:ml-24 sm:ml-10">
+                  <p className="text-lg font-medium text-gray-600">Total Riwayat</p>
+                  <p className="font-bold text-3xl">{countriwayat}</p>
+                </div>
+                <div className="overflow-hidden">
+                <div className="md:ml-36 sm:ml-24 py-4 px-4 bg-green-500 bg-opacity-100 rounded-full">
+                <FaHistory color="white" size="40"/>
+                </div>
                 </div>
               </div>
 
-              {/* Lower White Box (Orange) */}
-              <div className="bg-orange-200 p-4 rounded-md flex items-center bg-opacity-70">
+              {/* Lower White Box*/}
+              <div className="bg-pink-400 p-10 rounded-md flex items-center bg-opacity-90">
                 <div className="flex-shrink-0">
-                  {/* Circular Image for Box 4 */}
-                  <img
-                    src="kotak4.png"
-                    alt="Image 4"
-                    className="w-10 h-10 rounded-full"
-                  />
                 </div>
-                <div className="ml-4">
-                  <p className="text-lg font-semibold">Total Laporan</p>
-                  <p>200</p>
+                <div className="md:ml-16 sm:ml-0">
+                  <p className="text-lg font-medium text-gray-600">Total Laporan</p>
+                  <p className="font-bold text-3xl">{countproblem}</p>
+                </div>
+                <div className="overflow-hidden">
+                <div className="md:ml-36 sm:ml-24 py-4 px-4 bg-pink-500 bg-opacity-100 rounded-full">
+                <IoWarningOutline color="white" size="40"/>
+                </div>
                 </div>
               </div>
             </div>
@@ -107,5 +100,3 @@ const Page: React.FC = () => {
     </div>
   );
 };
-
-export default Page;
