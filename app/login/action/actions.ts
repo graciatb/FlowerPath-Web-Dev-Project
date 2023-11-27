@@ -1,6 +1,6 @@
 "use server";
 
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { createSupabaseServerClient } from "../../../lib/supabase/server";
 import { redirect } from "next/navigation";
 
 export async function signIn(data: {
@@ -15,5 +15,9 @@ export async function signIn(data: {
 export async function logout() {
 	const supabase = await createSupabaseServerClient();
 	await supabase.auth.signOut();
+	
+	// Add a console log to see the arguments passed to redirect
+	console.log('Redirecting to:', '/login');
+	
 	redirect("/login");
-}
+  }
