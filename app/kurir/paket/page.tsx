@@ -1,7 +1,7 @@
 import Search from "@/components/search";
 import PackageTable from "@/components/packagetable";
 import Pagination from "@/components/pagination";
-import { fetchPengirimanPages } from "@/lib/action/data";
+import { fetchCurrentUserName, fetchPengirimanPages } from "@/lib/action/data";
 
 export default async function Page({
   searchParams,
@@ -14,15 +14,14 @@ export default async function Page({
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await fetchPengirimanPages(query);
+  const nama = await fetchCurrentUserName();
   return (
     <div className="flex flex-col h-screen bg-slate-50">
       {/* Set header */}
       <div className="p-7 pl-14 bg-gray-200">
         <div className="flex justify-left space-x-1">
-          <div> Welcome,</div>
-          <div className="font-bold">
-            <div> Michael Sihotang </div>
-          </div>
+          <div>Welcome, </div>
+          <div className="font-bold">{nama}</div>
         </div>
       </div>
 
