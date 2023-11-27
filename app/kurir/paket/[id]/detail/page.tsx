@@ -38,7 +38,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <div className="flex items-center justify-center h-full">
         <div className="box-content h-96 w-11/12 pb-32 bg-white bg-opacity-90 rounded-xl">
           {/* Set header box 1 */}
-          <div className="flex items-center pt-6 px-8 pb-0">
+          <div className="flex items-center pt-5 px-8 pb-0">
             <div className="rounded-md h-8 w-full bg-green-400 bg-opacity-90">
               <div className="py-1 justify-center w-full flex text-md font-semibold text-green-600">
                 Keterangan Paket
@@ -50,9 +50,6 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="items-center pt-0 px-8 pb-0 w-full overflow-y-auto">
             <PackageTable detail={detail} />
           </div>
-
-          {/* Set header box 2 */}
-          
         </div>
       </div>
     </div>
