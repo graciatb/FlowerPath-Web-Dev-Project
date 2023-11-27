@@ -58,6 +58,7 @@ export default function TambahKurirForm() {
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 placeholder="Masukkan nama kurir"
               />
+              {form.formState.errors.nama && <p className="mt-2 text-sm text-red-500">{form.formState.errors.nama.message}</p>}
             </div>
           </div>
         </div>
@@ -76,6 +77,7 @@ export default function TambahKurirForm() {
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 placeholder="Masukkan Email"
               />
+              {form.formState.errors.email && <p className="mt-2 text-sm text-red-500">{form.formState.errors.email.message}</p>}
             </div>
           </div>
         </div>
@@ -93,6 +95,7 @@ export default function TambahKurirForm() {
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 placeholder="Masukkan password"
               />
+              {form.formState.errors.password && <p className="mt-2 text-sm text-red-500">{form.formState.errors.password.message}</p>}
             </div>
           </div>
         </div>
@@ -110,6 +113,7 @@ export default function TambahKurirForm() {
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 placeholder="Konfirmasi password"
               />
+              {form.formState.errors.confirm && <p className="mt-2 text-sm text-red-500">{form.formState.errors.confirm.message}</p>}
             </div>
           </div>
         </div>

@@ -12,7 +12,6 @@ export default async function Page({ params }: { params: { id: string } }) {
   if (!detail) {
     notFound();
   }
-  console.log(detail);
 
   const containerStyle: React.CSSProperties = {
     overflow: "hidden", // Menyembunyikan overflow
