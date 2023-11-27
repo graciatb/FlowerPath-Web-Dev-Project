@@ -1,8 +1,13 @@
 import { BsBoxSeam } from "react-icons/bs";
 import { AiOutlineFileDone } from "react-icons/ai";
 import { IoWarningOutline } from "react-icons/io5";
+import { fetchDeliveredPaketCount, fetchOnHoldPaketCount, fetchPaketCount } from "@/lib/action/data";
 
 export default async function Page() {
+
+  const countpaket = fetchPaketCount();
+  const countdelivered = fetchDeliveredPaketCount();
+  const countproblem = fetchOnHoldPaketCount();
     return (
         <div className="flex flex-col h-screen bg-slate-50">
 
@@ -33,7 +38,7 @@ export default async function Page() {
                     Total Paket Berlangsung
                   </div>
                   <div className="font-bold text-3xl">
-                  15</div>
+                  {countpaket}</div>
                 </div>
                 <div className="overflow-hidden">
                 <div className="mr-1 py-5 px-5 bg-green-500 bg-opacity-100 rounded-full">
@@ -49,7 +54,7 @@ export default async function Page() {
                     Total Paket Selesai
                   </div>
                   <div className="font-bold text-3xl">
-                  7</div>
+                  {countdelivered}</div>
                 </div>
                 <div className="overflow-hidden">
                 <div className="ml-12 py-4 px-4 bg-green-500 bg-opacity-100 rounded-full">
@@ -65,7 +70,7 @@ export default async function Page() {
                     Total Paket Bermasalah
                   </div>
                   <div className="font-bold text-3xl">
-                  5</div>
+                  {countproblem}</div>
                 </div>
                 <div className="overflow-hidden">
                 <div className="ml-2 py-4 px-4 bg-pink-500 bg-opacity-100 rounded-full">

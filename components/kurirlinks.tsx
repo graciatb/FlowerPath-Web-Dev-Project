@@ -14,7 +14,7 @@ const links = [
   { name: 'Dashboard', href: '/kurir', icon: Squares2X2Icon },
   {
     name: 'Paket',
-    href: '/kurir/package',
+    href: '/kurir/paket',
     icon: TruckIcon,
   },
 ];

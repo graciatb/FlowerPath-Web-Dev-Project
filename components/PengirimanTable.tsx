@@ -55,7 +55,7 @@ export default async function PengirimanTable({
           {table?.map((row, index) => (
             <tr key={row.id} className="bg-white">
               <td className="py-3 px-6 border-b">{index + 1}</td>
-              <td className="py-3 px-6 border-b">{row.user.nama}</td>
+              <td className="py-3 px-6 border-b">{row.users.nama}</td>
               <td className="py-3 px-6 border-b">{row.paket.penerima}</td>
               <td className="py-3 px-6 border-b">{row.paket.alamat}</td>
               <td className="py-3 px-6 border-b">{row.paket.jenisbunga}</td>
