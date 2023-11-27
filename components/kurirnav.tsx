@@ -2,6 +2,7 @@ import Link from 'next/link';
 import NavLinks from '@/components/kurirlinks';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import { logout } from '@/app/login/action/actions';
 
 export default function SideNav() {
   return (
@@ -16,7 +17,10 @@ export default function SideNav() {
       <div className="flex-grow flex flex-col justify-between space-y-4 md:space-y-2">
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
-        <form>
+        <form action={async () => {
+            'use server'
+            await logout();
+          }}>
           <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-pink-600 md:flex-none md:justify-start md:p-2 md:px-3">
             <PowerIcon className="w-6" />
             <div className="hidden md:block">Sign Out</div>

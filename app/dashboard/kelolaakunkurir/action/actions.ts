@@ -17,7 +17,6 @@ export async function createKurir(data: {
 }) {
   const { data: userSession } = await readUserSession();
   if (userSession.session?.user.user_metadata.role !== "admin") {
-    console.log("not allowed");
     return JSON.stringify({
       error: { message: "You are not allowed to do this!" },
     });
