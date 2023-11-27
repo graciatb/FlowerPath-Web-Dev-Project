@@ -14,9 +14,8 @@ export default async function TabelKurir({
   const {data: kurir} = await fetchFilteredKurir(query, currentPage);
 
   return (
-    <div className="relative overflow-x-auto bg-gray-300 rounded-md p-5">
-      <table className="w-full text-sm text-left rtl:text-right text-gray-200 dark:text-gray-200">
-        <thead className="text-xs text-orange-500 bg-orange-800 dark:bg-orange-800 dark:text-gray-200">
+      <table className="w-11/12 text-sm text-left rtl:text-right text-gray-200 dark:text-gray-200">
+        <thead className="text-sm text-white bg-orange-800 dark:bg-orange-800 dark:text-gray-200">
           <tr>
             <th scope="col" className="p-4">
               No
@@ -53,17 +52,16 @@ export default async function TabelKurir({
               <td className="px-6 py-4">
                 <Link 
                 href={`/dashboard/kelolaakunkurir/${kurir.id}/edit`}
-                className="bg-green-500 text-white px-3 py-2 rounded-md text-sm">
+                className="bg-green-500 text-white px-4 py-2.5 rounded-md text-sm">
                   Edit
                 </Link>
               </td>
-              <td className="px-6 py-4">
+              <td className="px-6 py-2">
                 <DeleteKurirButton id={kurir.id} />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
   );
 }

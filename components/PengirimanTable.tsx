@@ -22,28 +22,28 @@ export default async function PengirimanTable({
 
   return (
     <div className="relative overflow-x-auto">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="bg-orange-700 text-yellow-500">
+      <table className="w-full text-sm text-left text-black dark:text-gray-400">
+        <thead className="bg-orange-800 text-white">
           <tr>
-            <th scope="col" className="py-3 px-6 border-b">
+            <th scope="col" className="py-3 px-7 border-b">
               No
             </th>
-            <th scope="col" className="py-3 px-6 border-b">
+            <th scope="col" className="py-3 px-7 border-b">
               Nama Kurir
             </th>
-            <th scope="col" className="py-3 px-6 border-b">
+            <th scope="col" className="py-3 px-7 border-b">
               Nama Penerima
             </th>
-            <th scope="col" className="py-3 px-6 border-b">
+            <th scope="col" className="py-3 px-7 border-b">
               Alamat Tujuan
             </th>
-            <th scope="col" className="py-3 px-6 border-b">
+            <th scope="col" className="py-3 px-7 border-b">
               Jenis Bunga
             </th>
-            <th scope="col" className="py-3 px-6 border-b">
+            <th scope="col" className="py-3 px-7 border-b">
               No Telp Penerima
             </th>
-            <th scope="col" className="py-3 px-6 border-b">
+            <th scope="col" className="py-3 sm:px-16 2xl:px-7 border-b">
               Lihat Detail
             </th>
           </tr>
@@ -61,12 +61,14 @@ export default async function PengirimanTable({
               <td className="py-3 px-6 border-b">{row.paket.jenisbunga}</td>
               <td className="py-3 px-6 border-b">{row.paket.notelp}</td>
               <td className="py-3 px-6 border-b">
+                
+              
                 <Link
                   href={`/dashboard/pengiriman/${row.id}/detail`}
-                  className="py-2.5 px-5 me-2 mb-2 
-                                    text-sm font-small text-gray-900 
-                                    focus:outline-none bg-yellow-200 rounded-full border border-gray-200 
-                                    hover:bg-yellow-700 hover:text-white "
+                  className="w-full py-2 px-5 
+                                    md:text-sm font-semibold text-orange-800
+                                    focus:outline-none bg-pink-400 rounded-full border border-gray-200 
+                                    hover:bg-pink-600 hover:text-white "
                   // Ganti dengan lebar yang diinginkan
                 >
                   Lihat Detail
