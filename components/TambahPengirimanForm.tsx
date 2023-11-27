@@ -69,6 +69,7 @@ export default function TambahPengirimanForm({
               defaultValue=""
               aria-describedby="idpaket-error"
             >
+              {form.formState.errors.idpaket && <p className="mt-2 text-sm text-red-500">{form.formState.errors.idpaket.message}</p>}
               <option value="" disabled>
                 Pilih Paket
               </option>
